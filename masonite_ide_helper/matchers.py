@@ -12,7 +12,7 @@ def model_field_data_type_matcher(return_type):
         return_type = "int"
     if "float" in return_type.lower() or "double" in return_type.lower() or "real" in return_type.lower():
         return_type = "float"
-    if "decimal" in return_type.lower() or "numeric" in return_type.lower():
+    if "decimal" in return_type.lower() or "numeric" in return_type.lower() or "money" in return_type.lower():
         return_type = "Decimal.Decimal"
     if "text" in return_type.lower() or "char" in return_type.lower():
         return_type = "str"
@@ -20,8 +20,14 @@ def model_field_data_type_matcher(return_type):
         return_type = "datetime.datetime"
     if "bool" in return_type.lower():
         return_type = "bool"
+    if "binary" in return_type.lower():
+        return_type = "bytes"
     if "bool" in return_type.lower():
         return_type = "bool"
+    if "bit" in return_type.lower():
+        return_type = "bool"
+    if "uniqueidentifier" in return_type.lower():
+        return_type = "str"
     return return_type
 
 
@@ -36,6 +42,7 @@ def return_type_matcher(return_type):
         return "int"
     if return_type is bool:
         return "bool"
+    if return_type ==
     if return_type is datetime.datetime:
         return "datetime.datetime"
     if return_type is list:
